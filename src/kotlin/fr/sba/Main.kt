@@ -8,8 +8,11 @@ fun main() {
     api.get("/healthcheck") {
         it.result("ok")
     }
-    api.get("/teams"){
+   /* api.get("/teams"){
         it.result(rapidApi.getNbaTeams())
     }
+    api.get("/standings") {
+        it.result(rapidApi.getRankingByConf())
+    }*/
 }
 
