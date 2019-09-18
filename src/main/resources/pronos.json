@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Alex",
+    "East": {
+      "1": "Boston",
+      "2": "Toronto",
+      "3": "Philadelphia",
+      "4": "Indiana",
+      "5": "Milwaukee",
+      "6": "Washington",
+      "7": "Detroit",
+      "8": "Miami"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Houston",
+      "3": "Oklahoma City",
+      "4": "Utah",
+      "5": "Denver",
+      "6": "LA Lakers",
+      "7": "San Antonio",
+      "8": "Portland"
+    }
+  },
+  {
+    "name": "Seb",
+    "East": {
+      "1": "Boston",
+      "2": "Toronto",
+      "3": "Milwaukee",
+      "4": "Philadelphia",
+      "5": "Charlotte",
+      "6": "Detroit",
+      "7": "Washington",
+      "8": "Indiana"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Utah",
+      "3": "Houston",
+      "4": "New Orleans",
+      "5": "Denver",
+      "6": "Oklahoma City",
+      "7": "San Antonio",
+      "8": "Portland"
+    }
+  },
+  {
+    "name": "Wel",
+    "East": {
+      "1": "Boston",
+      "2": "Philadelphia",
+      "3": "Milwaukee",
+      "4": "Toronto",
+      "5": "Indiana",
+      "6": "Washington",
+      "7": "Detroit",
+      "8": "Miami"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Utah",
+      "3": "Houston",
+      "4": "San Antonio",
+      "5": "Oklahoma City",
+      "6": "LA Lakers",
+      "7": "New Orleans",
+      "8": "Portland"
+    }
+  },
+  {
+    "name": "JS",
+    "East": {
+      "1": "Boston",
+      "2": "Toronto",
+      "3": "Philadelphia",
+      "4": "Milwaukee",
+      "5": "Indiana",
+      "6": "Washington",
+      "7": "Miami",
+      "8": "Charlotte"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Houston",
+      "3": "Oklahoma City",
+      "4": "Utah",
+      "5": "Portland",
+      "6": "LA Lakers",
+      "7": "San Antonio",
+      "8": "Denver"
+    }
+  },
+  {
+    "name": "Virginie",
+    "East": {
+      "1": "Boston",
+      "2": "Philadelphia",
+      "3": "Toronto",
+      "4": "Milwaukee",
+      "5": "Indiana",
+      "6": "Washington",
+      "7": "Miami",
+      "8": "Detroit"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Houston",
+      "3": "Utah",
+      "4": "Oklahoma City",
+      "5": "LA Lakers",
+      "6": "Denver",
+      "7": "New Orleans",
+      "8": "San Antonio"
+    }
+  },
+  {
+    "name": "Aurélien",
+    "East": {
+      "1": "Boston",
+      "2": "Philadelphia",
+      "3": "Milwaukee",
+      "4": "Indiana",
+      "5": "Toronto",
+      "6": "Detroit",
+      "7": "Washington",
+      "8": "Charlotte"
+    },
+    "West": {
+      "1": "Golden State",
+      "2": "Houston",
+      "3": "Oklahoma City",
+      "4": "Utah",
+      "5": "Denver",
+      "6": "LA Lakers",
+      "7": "San Antonio",
+      "8": "Minnesota"
+    }
+  }
+]
