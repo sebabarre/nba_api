@@ -5,7 +5,7 @@ jdk:
 
 integrations:
   hub:
-    - integrationName: sebabarre_docker_hub
+    - integrationName: sebabarre docker hub
       type: dockerRegistryLogin
 
 build:
