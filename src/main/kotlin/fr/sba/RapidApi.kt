@@ -54,12 +54,12 @@ class RapidApi {
     }
 
     private fun getRankingByConf(conference: Conference): List<RuinartStandingByConference> {
+//        return listOf(RuinartStandingByConference(teamName = "BOSTON FUCKERS", ranking = 1))
         return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map {
             val teamName = nbaTeams.find { team ->
                 team.first == it.teamId
             }?.second
-            val ranking = it.conference.rank
-            RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(ranking))
+            RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(it.conference.rank), Integer.valueOf(it.win), Integer.valueOf(it.loss))
         }.sortedBy { it.ranking }
     }
 
@@ -69,8 +69,8 @@ class RapidApi {
         val allRanking = getNbaRanking()
         val pronos = getPronos()
         pronos.forEach{ it.calculate(allRanking) }
-        return pronos.sortedWith(
-            compareBy(Prono::score, Prono::nbOfCorrectInputs, Prono::ultimateString)
-        ).reversed().map { it.simple() }.toString()
+        return mapper.writeValueAsString(pronos.sortedWith(
+            compareBy(Prono::score, Prono::nbOfCorrectInputs).thenByDescending { it.ultimateString }
+        ).reversed())
     }
 }

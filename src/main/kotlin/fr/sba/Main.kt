@@ -4,7 +4,9 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.javalin.Javalin
 
 fun main() {
-    val api = Javalin.create().start(7777)
+    val api = Javalin.create { config ->
+        config.enableCorsForAllOrigins()
+    }.start(7777)
     val mapper = jacksonObjectMapper()
     val rapidApi = RapidApi()
     api.get("/healthcheck") {

@@ -53,7 +53,9 @@ data class StandingApi(val status: Int,
 data class StandingResponse(val api: StandingApi)
 
 data class RuinartStandingByConference(val teamName: String,
-                            val ranking: Int
+                            val ranking: Int,
+                                       val win: Int,
+                                       val losses: Int
 )
 data class RuinardStandingTeam(val east: List<RuinartStandingByConference>,
                                val west: List<RuinartStandingByConference>)
