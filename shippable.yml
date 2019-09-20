@@ -3,6 +3,13 @@ language: java
 jdk:
   - oraclejdk11
 
+integrations:
+  hub:
+    - integrationName: sebabarre_docker_hub
+      type: dockerRegistryLogin
+
 build:
   ci:
     - mvn clean install
+    - docker build -t sebabarre/ruinartchallenge:latest .
+    - docker push sebabarre/ruinartchallenge:latest
