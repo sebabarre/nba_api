@@ -5,6 +5,8 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import fr.sba.data.*
+import org.apache.logging.log4j.LogManager
+import org.slf4j.LoggerFactory
 
 const val HEADER_API_KEY = "x-rapidapi-key"
 const val HEADER_API_HOST = "x-rapidapi-host"
@@ -14,10 +16,12 @@ class RapidApi {
     private val mapper = jacksonObjectMapper()
     private val key = "8971ac3280msh73a623b488f4a49p153b68jsn250bd96f8428"
     private val host = "api-nba-v1.p.rapidapi.com"
-    private val nbaTeams = getNbaTeams().api.teams.filter { it.nbaFranchise == "1" }.map { it.teamId to it.city }
+    private lateinit var  nbaTeams: List<Pair<String,String>>
+    private val logger = LogManager.getLogger(this.javaClass)
 
-    private fun getNbaTeams(): TeamResponse {
-
+    private fun getNbaTeams(): List<Pair<String,String>> {
+        if (::nbaTeams.isInitialized) return nbaTeams
+        logger.debug("calling api to get nba teams")
         val client = OkHttpClient()
 
         val request = Request.Builder()
@@ -28,11 +32,13 @@ class RapidApi {
             .build()
 
         val response = client.newCall(request).execute()
-        return mapper.readValue(response.body().string())
+        val mapResponse =  mapper.readValue<TeamResponse>(response.body().string())
+        return mapResponse.api.teams.filter { it.nbaFranchise == "1" }.map { it.teamId to it.city }
     }
 
     private fun getStandings(conf: Conference): String {
         val client = OkHttpClient()
+        logger.debug("calling api to get nba standings for conference ${conf.name}")
 
         val request = Request.Builder()
             .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2018/conference/${conf.name.toLowerCase()}")
@@ -54,16 +60,16 @@ class RapidApi {
     }
 
     private fun getRankingByConf(conference: Conference): List<RuinartStandingByConference> {
-//        return listOf(RuinartStandingByConference(teamName = "BOSTON FUCKERS", ranking = 1))
-        return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map {
-            val teamName = nbaTeams.find { team ->
+        return listOf(RuinartStandingByConference(teamName = "BOSTON FUCKERS", ranking = 1, win = 81, losses = 1))
+        /*return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map {
+            val teamName = getNbaTeams().find { team ->
                 team.first == it.teamId
             }?.second
             RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(it.conference.rank), Integer.valueOf(it.win), Integer.valueOf(it.loss))
-        }.sortedBy { it.ranking }
+        }.sortedBy { it.ranking }*/
     }
 
-    fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))
+    private fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))
 
     fun getRuinartRanking() : String {
         val allRanking = getNbaRanking()
