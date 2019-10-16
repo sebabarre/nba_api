@@ -58,7 +58,8 @@ class RapidApi {
         incrementCounter()
         val response = client.newCall(request).execute()
         val mapResponse =  mapper.readValue<TeamResponse>(response.body().string())
-        nbaTeams = mapResponse.api.teams.filter { it.nbaFranchise == "1" }.map { it.teamId to it.city }
+        nbaTeams = mapResponse.api.teams.filter { it.nbaFranchise == "1" }.map {
+            it.teamId to it.fullName }
         return nbaTeams
     }
 
@@ -67,7 +68,7 @@ class RapidApi {
         logger.debug("calling api to get nba standings for conference ${conf.name}")
 
         val request = Request.Builder()
-            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2018/conference/${conf.name.toLowerCase()}")
+            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2019/conference/${conf.name.toLowerCase()}")
             .get()
             .addHeader(HEADER_API_HOST, host)
             .addHeader(HEADER_API_KEY, key)
@@ -97,12 +98,17 @@ class RapidApi {
         logger.debug("calling getRankingByConf $conference")
 
 //        return listOf(RuinartStandingByConference(teamName = "BOSTON FUCKERS", ranking = 1, win = 81, losses = 1))
-        return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map {
+        return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map { standing ->
             val teamName = getNbaTeams().find { team ->
-                team.first == it.teamId
+                team.first == standing.teamId
             }?.second
-            RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(it.conference.rank), Integer.valueOf(it.win), Integer.valueOf(it.loss))
-        }.sortedBy { it.ranking }
+            RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(standing.conference.rank?.let {
+                if (it.isNotEmpty()) it else "0"
+            }), Integer.valueOf(standing.win), Integer.valueOf(standing.loss))
+        }.sortedBy { if (it.ranking != 0) it.ranking else {
+                -(it.win * 100).div(it.win + it.losses)
+            }
+        }
     }
 
     private fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))

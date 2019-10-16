@@ -25,24 +25,24 @@
   {
     "name": "Seb",
     "East": {
-      "1": "Boston",
-      "2": "Toronto",
-      "3": "Milwaukee",
-      "4": "Philadelphia",
-      "5": "Charlotte",
-      "6": "Detroit",
-      "7": "Washington",
-      "8": "Indiana"
+      "1": "Milwaukee Bucks",
+      "2": "Boston Celtics",
+      "3": "Philadelphia 76ers",
+      "4": "Brooklyn Nets",
+      "5": "Toronto Raptors",
+      "6": "Detroit Pistons",
+      "7": "Miami Heat",
+      "8": "Chicago Bulls"
     },
     "West": {
-      "1": "Golden State",
-      "2": "Utah",
-      "3": "Houston",
-      "4": "New Orleans",
-      "5": "Denver",
-      "6": "Oklahoma City",
-      "7": "San Antonio",
-      "8": "Portland"
+      "1": "Utah Jazz",
+      "2": "Los Angeles Lakers",
+      "3": "LA Clippers",
+      "4": "Portland Trail Blazers",
+      "5": "Denver Nuggets",
+      "6": "New Orleans Pelicans",
+      "7": "Golden State Warriors",
+      "8": "Houston Rockets"
     }
   },
   {
