@@ -6,7 +6,6 @@ import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import fr.sba.data.*
 import org.apache.logging.log4j.LogManager
-import org.slf4j.LoggerFactory
 import java.time.ZonedDateTime
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
@@ -20,18 +19,19 @@ class RapidApi {
     private val key = "8971ac3280msh73a623b488f4a49p153b68jsn250bd96f8428"
     private val host = "api-nba-v1.p.rapidapi.com"
     @Volatile private lateinit var  nbaTeams: List<Pair<String,String>>
-    @Volatile private lateinit var nbaRanking: RuinardStandingTeam
+    @Volatile private var nbaRanking: RuinardStandingTeam? = null
     @Volatile private var nbOfApiCalls = 0
     private val logger = LogManager.getLogger(this.javaClass)
     private val EVERY_DAY: Long = 24 * 60 * 60 * 1000L
 
     init {
         fixedRateTimer(
-            name = "reset-nb-of-apicall-counter",
+            name = "reset-nb-of-apicall-counter-and-nbaranking",
             startAt = Date(ZonedDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).toInstant().epochSecond),
             period = EVERY_DAY
         ) {
             nbOfApiCalls = 0
+            nbaRanking = null
         }
     }
 
@@ -84,14 +84,14 @@ class RapidApi {
 
     @Synchronized
     fun getNbaRanking(): RuinardStandingTeam {
-        if (::nbaRanking.isInitialized) {
+        if (nbaRanking != null) {
             logger.debug("No need to call api, nbaRanking is already initialized")
-            return nbaRanking
+            return nbaRanking as RuinardStandingTeam
         }
         logger.debug("Calling getNbaRanking")
 
         nbaRanking = RuinardStandingTeam(east = getRankingByConf(Conference.EAST), west = getRankingByConf(Conference.WEST))
-        return nbaRanking
+        return nbaRanking as RuinardStandingTeam
     }
 
     private fun getRankingByConf(conference: Conference): List<RuinartStandingByConference> {
