@@ -48,24 +48,24 @@
   {
     "name": "Wel",
     "East": {
-      "1": "Boston",
-      "2": "Philadelphia",
-      "3": "Milwaukee",
-      "4": "Toronto",
-      "5": "Indiana",
-      "6": "Washington",
-      "7": "Detroit",
-      "8": "Miami"
+      "1": "Milwaukee Bucks",
+      "2": "Philadelphia 76ers",
+      "3": "Indiana Pacers",
+      "4": "Boston Celtics",
+      "5": "Brooklyn Nets",
+      "6": "Toronto Raptors",
+      "7": "Miami Heat",
+      "8": "Orlando Magic"
     },
     "West": {
-      "1": "Golden State",
-      "2": "Utah",
-      "3": "Houston",
-      "4": "San Antonio",
-      "5": "Oklahoma City",
-      "6": "LA Lakers",
-      "7": "New Orleans",
-      "8": "Portland"
+      "1": "LA Clippers",
+      "2": "Utah Jazz",
+      "3": "Denver Nuggets",
+      "4": "Los Angeles Lakers",
+      "5": "Portland Trail Blazers",
+      "6": "Golden State Warriors",
+      "7": "Houston Rockets",
+      "8": "San Antonio Spurs"
     }
   },
   {
@@ -117,24 +117,24 @@
   {
     "name": "Aurélien",
     "East": {
-      "1": "Boston",
-      "2": "Philadelphia",
-      "3": "Milwaukee",
-      "4": "Indiana",
-      "5": "Toronto",
-      "6": "Detroit",
-      "7": "Washington",
-      "8": "Charlotte"
+      "1": "Milwaukee Bucks",
+      "2": "Philadelphia 76ers",
+      "3": "Toronto Raptors",
+      "4": "Boston Celtics",
+      "5": "Indiana Pacers",
+      "6": "Brooklyn Nets",
+      "7": "Miami Heat",
+      "8": "Orlando Magic"
     },
     "West": {
-      "1": "Golden State",
-      "2": "Houston",
-      "3": "Oklahoma City",
-      "4": "Utah",
-      "5": "Denver",
-      "6": "LA Lakers",
-      "7": "San Antonio",
-      "8": "Minnesota"
+      "1": "LA Clippers",
+      "2": "Houston Rockets",
+      "3": "Los Angeles Lakers",
+      "4": "Utah Jazz",
+      "5": "Golden State Warriors",
+      "6": "Denver Nuggets",
+      "7": "Portland Trail Blazers",
+      "8": "San Antonio Spurs"
     }
   }
 ]

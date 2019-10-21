@@ -27,7 +27,7 @@ class RapidApi {
     init {
         fixedRateTimer(
             name = "reset-nb-of-apicall-counter-and-nbaranking",
-            startAt = Date(ZonedDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).toInstant().epochSecond),
+            startAt = Date(ZonedDateTime.now().plusDays(1).withHour(9).withMinute(50).withSecond(0).toInstant().epochSecond),
             period = EVERY_DAY
         ) {
             nbOfApiCalls = 0
