@@ -22,13 +22,12 @@ class RapidApi {
     @Volatile private var nbaRanking: RuinardStandingTeam? = null
     @Volatile private var nbOfApiCalls = 0
     private val logger = LogManager.getLogger(this.javaClass)
-    private val EVERY_DAY: Long = 24 * 60 * 60 * 1000L
 
     init {
         fixedRateTimer(
             name = "reset-nb-of-apicall-counter-and-nbaranking",
             startAt = Date(ZonedDateTime.now().plusDays(1).withHour(9).withMinute(50).withSecond(0).toInstant().epochSecond),
-            period = EVERY_DAY
+            period = Companion.EVERY_DAY
         ) {
             nbOfApiCalls = 0
             nbaRanking = null
@@ -104,11 +103,8 @@ class RapidApi {
             }?.second
             RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(standing.conference.rank?.let {
                 if (it.isNotEmpty()) it else "0"
-            }), Integer.valueOf(standing.win), Integer.valueOf(standing.loss))
-        }.sortedBy { if (it.ranking != 0) it.ranking else {
-                -(it.win * 100).div(it.win + it.losses)
-            }
-        }
+            }), Integer.valueOf(standing.win), Integer.valueOf(standing.loss), standing.winPercentage)
+        }.sortedBy { it.percentage }
     }
 
     private fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))
@@ -120,5 +116,9 @@ class RapidApi {
         return mapper.writeValueAsString(pronos.sortedWith(
             compareBy(Prono::score, Prono::nbOfCorrectInputs).thenByDescending { it.ultimateString }
         ).reversed())
+    }
+
+    companion object {
+        private const val EVERY_DAY: Long = 24 * 60 * 60 * 1000L
     }
 }
