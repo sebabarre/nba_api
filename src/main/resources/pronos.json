@@ -2,24 +2,24 @@
   {
     "name": "Alex",
     "East": {
-      "1": "Boston",
-      "2": "Toronto",
-      "3": "Philadelphia",
-      "4": "Indiana",
-      "5": "Milwaukee",
-      "6": "Washington",
-      "7": "Detroit",
-      "8": "Miami"
+      "1": "Philadelphia 76ers",
+      "2": "Milwaukee Bucks",
+      "3": "Boston Celtics",
+      "4": "Indiana Pacers",
+      "5": "Toronto Raptors",
+      "6": "Brooklyn Nets",
+      "7": "Miami Heat",
+      "8": "Orlando Magic"
     },
     "West": {
-      "1": "Golden State",
-      "2": "Houston",
-      "3": "Oklahoma City",
-      "4": "Utah",
-      "5": "Denver",
+      "1": "LA Clippers",
+      "2": "Denver Nuggets",
+      "3": "Utah Jazz",
+      "4": "Los Angeles Lakers",
+      "5": "Houston Rockets",
       "6": "LA Lakers",
-      "7": "San Antonio",
-      "8": "Portland"
+      "7": "Golden State Warriors",
+      "8": "Dallas Mavericks"
     }
   },
   {

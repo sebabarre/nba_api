@@ -27,7 +27,7 @@ class RapidApi {
         fixedRateTimer(
             name = "reset-nb-of-apicall-counter-and-nbaranking",
             startAt = Date(ZonedDateTime.now().plusDays(1).withHour(9).withMinute(50).withSecond(0).toInstant().epochSecond),
-            period = Companion.EVERY_DAY
+            period = EVERY_DAY
         ) {
             nbOfApiCalls = 0
             nbaRanking = null
@@ -104,7 +104,7 @@ class RapidApi {
             RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(standing.conference.rank?.let {
                 if (it.isNotEmpty()) it else "0"
             }), Integer.valueOf(standing.win), Integer.valueOf(standing.loss), standing.winPercentage)
-        }.sortedBy { it.percentage }
+        }.sortedByDescending { it.percentage }
     }
 
     private fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))
