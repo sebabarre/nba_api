@@ -112,7 +112,7 @@ class RapidApi {
             RuinartStandingByConference(teamName ?: "oups", Integer.valueOf(standing.conference.rank?.let {
                 if (it.isNotEmpty()) it else "0"
             }), Integer.valueOf(standing.win), Integer.valueOf(standing.loss), standing.winPercentage)
-        }.sortedByDescending { it.percentage }
+        }.sortedBy { it.ranking }
     }
 
     private fun getPronos(): List<Prono> = mapper.readValue(fileToString(javaClass.classLoader.getResourceAsStream("pronos.json")))
