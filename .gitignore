@@ -1,3 +1,6 @@
-target
+target/archive*
+target/classes
+target/maven*
+target/test*
 *.iml 
 .idea 
