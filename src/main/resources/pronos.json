@@ -69,6 +69,29 @@
     }
   },
   {
+    "name": "Virginie",
+    "East": {
+      "1": "Milwaukee Bucks",
+      "2": "Boston Celtics",
+      "3": "Brooklyn Nets",
+      "4": "Miami Heat",
+      "5": "Philadelphia 76ers",
+      "6": "Toronto Raptors",
+      "7": "Atlanta Hawks",
+      "8": "Indiana Pacers"
+    },
+    "West": {
+      "1": "Los Angeles Lakers",
+      "2": "LA Clippers",
+      "3": "Denver Nuggets",
+      "4": "Portland Trail Blazers",
+      "5": "Utah Jazz",
+      "6": "Dallas Mavericks",
+      "7": "Phoenix Suns",
+      "8": "Portland Trail Blazers"
+    }
+  },
+  {
     "name": "Aurélien",
     "East": {
       "1": "Milwaukee Bucks",

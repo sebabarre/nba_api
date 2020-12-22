@@ -11,5 +11,5 @@ integrations:
 build:
   ci:
     - mvn clean install
-    - docker build -t sebabarre/ruinartchallenge:2020.0 .
-    - docker push sebabarre/ruinartchallenge:2020.0
+    - docker build -t sebabarre/ruinartchallenge:2020.1 .
+    - docker push sebabarre/ruinartchallenge:2020.1
