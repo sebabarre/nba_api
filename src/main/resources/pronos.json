@@ -69,6 +69,29 @@
     }
   },
   {
+    "name": "JS",
+    "East": {
+      "1": "Milwaukee Bucks",
+      "2": "Boston Celtics",
+      "3": "Brooklyn Nets",
+      "4": "Philadelphia 76ers",
+      "5": "Miami Heat",
+      "6": "Toronto Raptors",
+      "7": "Washington Wizards",
+      "8": "Atlanta Hawks"
+    },
+    "West": {
+      "1": "LA Clippers",
+      "2": "Los Angeles Lakers",
+      "3": "Denver Nuggets",
+      "4": "Portland Trail Blazers",
+      "5": "Utah Jazz",
+      "6": "Dallas Mavericks",
+      "7": "Phoenix Suns",
+      "8": "New Orleans Pelicans"
+    }
+  },
+  {
     "name": "Virginie",
     "East": {
       "1": "Milwaukee Bucks",

@@ -75,7 +75,7 @@ class RapidApi {
         logger.debug("calling api to get nba standings for conference ${conf.name}")
 
         val request = Request.Builder()
-            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2019/conference/${conf.name.toLowerCase()}")
+            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2020/conference/${conf.name.toLowerCase()}")
             .get()
             .addHeader(HEADER_API_HOST, host)
             .addHeader(HEADER_API_KEY, key)
