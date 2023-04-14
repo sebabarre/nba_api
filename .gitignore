@@ -4,3 +4,4 @@ target/maven*
 target/test*
 *.iml 
 .idea 
+/target/
