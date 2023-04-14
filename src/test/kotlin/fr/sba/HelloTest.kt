@@ -2,10 +2,7 @@ package fr.sba
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import fr.sba.data.Ranking
-import fr.sba.data.Standing
-import fr.sba.data.StandingApi
-import fr.sba.data.StandingResponse
+import fr.sba.data.*
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -49,6 +46,33 @@ class HelloTest {
         )
     )
 
+    private val expectedTeams = TeamResponse(
+        api = TeamApi(
+            status=200,
+            message="GET teams/league/standard",
+            results=57,
+            filters=listOf("teamId", "league", "city", "shortName", "nickName", "confName", "divName"),
+            teams= listOf(
+                Team(
+                    city="Atlanta",
+                    fullName="Atlanta Hawks",
+                    teamId="1",
+                    nickname="Hawks",
+                    logo="https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png",
+                    url="1182",
+                    shortName="ATL",
+                    allStar="0",
+                    nbaFranchise="1",
+                    leagues=Leagues(
+                        standard=Standard(
+                            confName="East", divName="Southeast"
+                        )
+                    )
+                )
+            )
+        )
+    )
+
     @Test
     fun testStandingMapping() {
         val pronos = fileToString(javaClass.classLoader.getResourceAsStream("nba_standing.json"))
@@ -58,6 +82,12 @@ class HelloTest {
         assertEquals(response, expectedStanding)
     }
 
-
-
+    @Test
+    fun testTeamsMapping() {
+        val teams = fileToString(javaClass.classLoader.getResourceAsStream("teams.json"))
+        assertNotNull(teams)
+        val response: TeamResponse = mapper.readValue(teams)
+        assertNotNull(response)
+        assertEquals(response, expectedTeams)
+    }
 }

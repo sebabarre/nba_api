@@ -1,0 +1,35 @@
+{
+  "api": {
+    "status": 200,
+    "message": "GET teams\/league\/standard",
+    "results": 57,
+    "filters": [
+      "teamId",
+      "league",
+      "city",
+      "shortName",
+      "nickName",
+      "confName",
+      "divName"
+    ],
+    "teams": [
+      {
+        "city": "Atlanta",
+        "fullName": "Atlanta Hawks",
+        "teamId": "1",
+        "nickname": "Hawks",
+        "logo": "https:\/\/upload.wikimedia.org\/wikipedia\/fr\/e\/ee\/Hawks_2016.png",
+        "url": "1182",
+        "shortName": "ATL",
+        "allStar": "0",
+        "nbaFranchise": "1",
+        "leagues": {
+          "standard": {
+            "confName": "East",
+            "divName": "Southeast"
+          }
+        }
+      }
+    ]
+  }
+}
