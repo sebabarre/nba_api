@@ -1,0 +1,50 @@
+{
+  "api": {
+    "status": 200,
+    "message": "GET standings/standard/2020/conference/east",
+    "results": 15,
+    "filters": [
+      "conference",
+      "division",
+      "teamId"
+    ],
+    "standings": [
+      {
+        "league": "standard",
+        "teamId": "20",
+        "win": "40",
+        "loss": "32",
+        "gamesBehind": "9.0",
+        "lastTenWin": "8",
+        "lastTenLoss": "2",
+        "streak": "1",
+        "seasonYear": "2020",
+        "conference": {
+          "name": "east",
+          "rank": "6",
+          "win": "24",
+          "loss": "18"
+        },
+        "division": {
+          "name": "southeast",
+          "rank": "2",
+          "win": "6",
+          "loss": "6",
+          "GamesBehind": "1.0"
+        },
+        "winPercentage": ".556",
+        "lossPercentage": ".444",
+        "home": {
+          "win": "21",
+          "loss": "15"
+        },
+        "away": {
+          "win": "19",
+          "loss": "17"
+        },
+        "winStreak": "1",
+        "tieBreakerPoints": ""
+      }
+    ]
+  }
+}

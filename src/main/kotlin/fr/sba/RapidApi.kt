@@ -70,7 +70,7 @@ class RapidApi {
         return nbaTeams
     }
 
-    private fun getStandings(conf: Conference): String {
+    fun getStandings(conf: Conference): String {
         val client = OkHttpClient()
         logger.debug("calling api to get nba standings for conference ${conf.name}")
 
@@ -82,6 +82,7 @@ class RapidApi {
             .build()
         incrementCounter()
         val response = client.newCall(request).execute()
+        logger.debug(response.body().string())
         return response.body().string()
     }
 
