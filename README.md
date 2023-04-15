@@ -10,8 +10,14 @@ Offrir en Json les informations nécessaires à l'affichage du ruinartChallenge
 
 ```
 mvn clean install
-java -jar target/nba_api-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/nba_api-<VERSION>-jar-with-dependencies.jar
 ```
 
 tester http://localhost:7777/standings et http://localhost:7777/pronos
+
+## Builder en local
+
+```
+docker build . -t nba_api_<VERSION>
+```
 

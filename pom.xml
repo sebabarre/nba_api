@@ -5,10 +5,10 @@
 
     <groupId>fr.sba</groupId>
     <artifactId>nba_api</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>fr.sba nba_api</name>
+    <name>fr.sba.nba_api</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
