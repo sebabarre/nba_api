@@ -43,7 +43,7 @@ data class Standing(val league: String,
                     val home: Ranking,
                     val away: Ranking,
                     val winStreak: String,
-                    val tieBreakerPoints: String)
+                    val tieBreakerPoints: String?)
 
 data class StandingApi(val status: Int,
                        val message: String,

@@ -75,15 +75,16 @@ class RapidApi {
         logger.debug("calling api to get nba standings for conference ${conf.name}")
 
         val request = Request.Builder()
-            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2020/conference/${conf.name.toLowerCase()}")
+            .url("https://api-nba-v1.p.rapidapi.com/standings/standard/2022/conference/${conf.name.toLowerCase()}")
             .get()
             .addHeader(HEADER_API_HOST, host)
             .addHeader(HEADER_API_KEY, key)
             .build()
         incrementCounter()
         val response = client.newCall(request).execute()
-        logger.debug(response.body().string())
-        return response.body().string()
+        val result=response.body().string()
+        logger.debug(result)
+        return result
     }
 
     enum class Conference {
@@ -106,7 +107,8 @@ class RapidApi {
         logger.debug("calling getRankingByConf $conference")
 
 //        return listOf(RuinartStandingByConference(teamName = "BOSTON FUCKERS", ranking = 1, win = 81, losses = 1))
-        return mapper.readValue<StandingResponse>(getStandings(conference)).api.standings.map { standing ->
+        val standings = getStandings(conference)
+        return mapper.readValue<StandingResponse>(standings).api.standings.map { standing ->
             val teamName = getNbaTeams().find { team ->
                 team.first == standing.teamId
             }?.second
